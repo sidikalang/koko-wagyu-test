@@ -61,5 +61,25 @@ class Vpc
 
     security_groups_clean
   end
+  
+  def show_vpc_info
+    puts "VPC Name is Provided" if @vpc_name
+
+    puts "\n============= VPC INFO ============="
+    
+    puts "\nvpc_name    : '#{@vpc_name}'"
+
+    puts "\nvpc_id      : '#{@vpc_id}'"
+
+    puts "\nvpc_subnets : "
+    @vpc_subnets.each do |name, ip_count|
+      puts "-> #{name} : #{ip_count}"
+    end
+
+    puts "\nvpc_security_groups : "
+    @vpc_security_groups.each do |vpc_security_group|
+      puts "-> #{vpc_security_group}"
+    end
+  end
 
 end
